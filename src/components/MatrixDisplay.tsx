@@ -1,23 +1,26 @@
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLTableElement> {
   matrix: Matrix;
 }
 
-const MatrixDisplay: React.FC<Props> = ({ matrix }) => {
+const MatrixDisplay: React.FC<Props> = ({ matrix, ...props }) => {
   return (
-    <div className="flex flex-col items-center gap-2 md:items-end md:justify-center">
+    <table
+      className="flex flex-col items-center gap-2 md:items-end md:justify-center"
+      {...props}
+    >
       {matrix.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex gap-2">
+        <tr key={rowIndex} className="flex gap-2">
           {row.map((cell, cellIndex) => (
-            <div
+            <td
               key={cellIndex}
               className="flex size-20 items-center justify-center rounded-md border border-gray-300 text-xl font-semibold"
             >
               {cell}
-            </div>
+            </td>
           ))}
-        </div>
+        </tr>
       ))}
-    </div>
+    </table>
   );
 };
 

@@ -10,12 +10,13 @@ const MatrixResults: React.FC = () => {
     rotatedMatrix && (
       <section
         id="results"
+        aria-label="Results"
         className="container mx-auto flex max-w-5xl flex-col gap-7"
       >
         <h2 className="py-2 text-center text-xl font-bold">Results</h2>
 
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-          <MatrixDisplay matrix={rotatedMatrix} />
+          <MatrixDisplay aria-label="Rotated matrix" matrix={rotatedMatrix} />
           <MatrixStats stats={stats} />
         </div>
 

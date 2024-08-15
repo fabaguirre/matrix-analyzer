@@ -5,7 +5,10 @@ interface Props {
 const MatrixStats: React.FC<Props> = ({ stats }) => {
   return (
     <div className="flex flex-col items-center gap-2 rounded-md md:w-fit md:justify-center">
-      <dl className="grid auto-cols-max gap-x-12 gap-y-2 bg-slate-900 px-6 py-3 [&>dd]:col-start-2 [&>dd]:text-center [&>dd]:text-2xl [&>dd]:font-semibold [&>dt]:text-xl [&>dt]:font-light">
+      <dl
+        aria-label="Statistics"
+        className="grid auto-cols-max gap-x-12 gap-y-2 bg-slate-900 px-6 py-3 [&>dd]:col-start-2 [&>dd]:text-center [&>dd]:text-2xl [&>dd]:font-semibold [&>dt]:text-xl [&>dt]:font-light"
+      >
         <dt>Max</dt>
         <dd>{stats.max}</dd>
 
