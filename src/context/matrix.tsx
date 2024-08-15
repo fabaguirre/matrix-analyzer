@@ -24,6 +24,7 @@ export interface MatrixContextType {
 
   rotatedMatrix?: Matrix;
   stats?: MatrixStats;
+  clearResults: () => void;
 }
 
 export const MatrixContext = createContext<MatrixContextType>({
@@ -35,6 +36,7 @@ export const MatrixContext = createContext<MatrixContextType>({
   setColumnsLength: () => {},
   isLoading: false,
   analyzeMatrix: () => {},
+  clearResults: () => {},
 });
 
 export function MatrixProvider({ children }: { children: React.ReactNode }) {
@@ -83,6 +85,11 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
       });
   };
 
+  const clearResults = () => {
+    setStats(undefined);
+    setRotatedMatrix(undefined);
+  };
+
   return (
     <MatrixContext.Provider
       value={{
@@ -96,6 +103,7 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
         analyzeMatrix,
         stats,
         rotatedMatrix,
+        clearResults,
       }}
     >
       {children}

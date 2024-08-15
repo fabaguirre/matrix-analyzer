@@ -3,7 +3,7 @@ import MatrixDisplay from './MatrixDisplay';
 import MatrixStats from './MatrixStats';
 
 const MatrixResults: React.FC = () => {
-  const { rotatedMatrix, stats } = useMatrix();
+  const { rotatedMatrix, stats, clearResults } = useMatrix();
 
   return (
     stats &&
@@ -17,7 +17,10 @@ const MatrixResults: React.FC = () => {
         </div>
 
         <div className="flex justify-center pt-5">
-          <button className="h-12 w-52 p-2 text-lg font-semibold ring-1 ring-gray-100 transition-colors hover:bg-white/10">
+          <button
+            className="h-12 w-52 p-2 text-lg font-semibold ring-1 ring-gray-100 transition-colors hover:bg-white/10"
+            onClick={clearResults}
+          >
             Reset
           </button>
         </div>
