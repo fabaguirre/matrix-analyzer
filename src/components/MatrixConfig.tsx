@@ -1,3 +1,5 @@
+import IconColumns from '@/components/icons/IconColumns';
+import IconRows from '@/components/icons/IconRows';
 import { useMatrix } from '@/hooks/useMatrix';
 
 const MatrixConfig: React.FC = () => {
@@ -6,8 +8,8 @@ const MatrixConfig: React.FC = () => {
 
   return (
     <form className="container mx-auto mt-2 flex max-w-5xl justify-center gap-4">
-      <label>
-        Rows
+      <label className="flex items-center gap-2">
+        <IconRows />
         <input
           type="range"
           value={rowsLength}
@@ -16,8 +18,8 @@ const MatrixConfig: React.FC = () => {
         />
       </label>
 
-      <label>
-        Columns
+      <label className="flex items-center gap-2">
+        <IconColumns />
         <input
           type="range"
           value={columnsLength}
