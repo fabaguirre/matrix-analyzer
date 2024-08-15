@@ -13,7 +13,7 @@ const MatrixStats: React.FC<Props> = ({ stats }) => {
         <dd>{stats.min}</dd>
 
         <dt>Average</dt>
-        <dd>{stats.average}</dd>
+        <dd>{stats.average.toFixed(2)}</dd>
 
         <dt>Total Sum</dt>
         <dd>{stats.totalSum}</dd>
