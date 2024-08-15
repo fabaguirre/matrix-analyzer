@@ -1,3 +1,4 @@
+import { processMatrix } from '@/service/matrix';
 import { createContext, useEffect, useState } from 'react';
 
 export interface MatrixContextType {
@@ -19,8 +20,9 @@ export interface MatrixContextType {
   setColumnsLength: (columnsLength: number) => void;
 
   isLoading: boolean;
-  analyzeMatrix: () => Promise<void>;
+  analyzeMatrix: () => void;
 
+  rotatedMatrix?: Matrix;
   stats?: MatrixStats;
 }
 
@@ -32,7 +34,7 @@ export const MatrixContext = createContext<MatrixContextType>({
   setRowsLength: () => {},
   setColumnsLength: () => {},
   isLoading: false,
-  analyzeMatrix: async () => {},
+  analyzeMatrix: () => {},
 });
 
 export function MatrixProvider({ children }: { children: React.ReactNode }) {
@@ -41,6 +43,7 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
   const [columnsLength, setColumnsLength] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const [stats, setStats] = useState<MatrixStats>();
+  const [rotatedMatrix, setRotatedMatrix] = useState<Matrix>();
 
   const updateMatrixCell = ({
     rowIndex,
@@ -68,17 +71,16 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
     setMatrix(new Array(rowsLength).fill(new Array(columnsLength).fill(0)));
   }, [rowsLength, columnsLength, setMatrix]);
 
-  const analyzeMatrix = async () => {
+  const analyzeMatrix = () => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    setStats({
-      average: 0,
-      isDiagonal: false,
-      max: 0,
-      min: 0,
-      totalSum: 0,
-    });
-    setIsLoading(false);
+    processMatrix({ matrix })
+      .then(data => {
+        setStats(data.stats);
+        setRotatedMatrix(data.rotatedMatrix);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -93,6 +95,7 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
         isLoading,
         analyzeMatrix,
         stats,
+        rotatedMatrix,
       }}
     >
       {children}
