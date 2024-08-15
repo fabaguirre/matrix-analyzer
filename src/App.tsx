@@ -1,10 +1,11 @@
+import MatrixForm from '@/components/MatrixForm';
 import React from 'react';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
+    <main>
+      <MatrixForm />
+    </main>
   );
 };
 
