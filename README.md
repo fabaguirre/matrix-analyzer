@@ -67,4 +67,4 @@ Here's a preview of **MatrixAnalyzer** in action:
 
 ## Demo
 
-🚀 Check out the live demo here: [MatrixAnalyzer Demo](https://yourdemo.com)
+🚀 Check out the live demo [here](https://matrix-analyzer.vercel.app/)
