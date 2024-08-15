@@ -3,7 +3,7 @@ import React from 'react';
 
 const App: React.FC = () => {
   return (
-    <main>
+    <main className="py-7">
       <MatrixForm />
     </main>
   );

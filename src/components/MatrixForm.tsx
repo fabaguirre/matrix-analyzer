@@ -5,7 +5,7 @@ import MatrixInput from './MatrixInput';
 const MatrixForm: React.FC = () => {
   return (
     <section className="mx-auto flex flex-col gap-6">
-      <h1 className="container mx-auto max-w-5xl text-balance text-center text-4xl font-bold">
+      <h1 className="container mx-auto max-w-5xl text-balance py-2 text-center text-4xl font-bold">
         Matrix Analyzer
       </h1>
 

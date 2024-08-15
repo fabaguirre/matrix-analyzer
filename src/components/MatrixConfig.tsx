@@ -7,7 +7,7 @@ const MatrixConfig: React.FC = () => {
     useMatrix();
 
   return (
-    <form className="container mx-auto mt-2 flex max-w-5xl justify-center gap-4">
+    <form className="container mx-auto flex max-w-5xl justify-center gap-4">
       <label className="flex items-center gap-2">
         <IconRows />
         <input
