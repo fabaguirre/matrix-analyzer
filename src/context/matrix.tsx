@@ -90,6 +90,13 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
     setRotatedMatrix(undefined);
   };
 
+  useEffect(() => {
+    if (!isLoading) {
+      const results = document.getElementById('results');
+      results?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isLoading]);
+
   return (
     <MatrixContext.Provider
       value={{

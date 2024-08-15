@@ -8,7 +8,10 @@ const MatrixResults: React.FC = () => {
   return (
     stats &&
     rotatedMatrix && (
-      <section className="container mx-auto flex max-w-5xl flex-col gap-7">
+      <section
+        id="results"
+        className="container mx-auto flex max-w-5xl flex-col gap-7"
+      >
         <h2 className="py-2 text-center text-xl font-bold">Results</h2>
 
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
