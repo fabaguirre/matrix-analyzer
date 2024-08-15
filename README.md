@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# MatrixAnalyzer 📊🔄
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+**MatrixAnalyzer** is a React and Vite-based frontend application that consumes two APIs to display matrix rotation results and additional statistics. The app provides an interactive and user-friendly interface for real-time QR decomposition and statistical analysis.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🔄 **Matrix Rotation**: Rotate matrices and visualize the results instantly.
+- 📊 **Statistical Analysis**: View detailed matrix statistics such as maximum, minimum, average, and more.
+- 🎯 **Interactive UI**: Easy-to-use interface with real-time data updates.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+   ```bash
+   git clone https://github.com/yourusername/matrix-analyzer.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd matrix-analyzer
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+1. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`.
+
+2. Interact with the APIs:
+
+   - **Matrix Rotation API**: Make requests to rotate matrices and view visual results.
+   - **Statistics API**: Get detailed matrix statistics like max, min, average, etc.
+
+## Environment Variables
+
+Ensure to copy the `.env.example` file to `.env` before starting the project:
+
+```bash
+cp .env.example .env
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The environment variables must be set for the project to function. By default, `PORT` is an empty string, so be sure to configure all environment variables.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+## Screenshot
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+Here's a preview of **MatrixAnalyzer** in action:
+
+1. **Matrix Input Form**:  
+   ![Matrix Input Form](./public/screenshots/form.webp)
+
+2. **Matrix Rotation & Statistics Results**:  
+   ![Matrix Results](./public/screenshots/results.webp)
+
+## Demo
+
+🚀 Check out the live demo here: [MatrixAnalyzer Demo](https://yourdemo.com)
