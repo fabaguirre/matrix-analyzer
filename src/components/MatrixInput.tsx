@@ -1,19 +1,9 @@
+import { useMatrix } from '@/hooks/useMatrix';
 import MatrixCellInput from './MatrixCellInput';
 
-interface Props {
-  matrix: number[][];
-  updateMatrix: ({
-    rowIndex,
-    columnIndex,
-    value,
-  }: {
-    rowIndex: number;
-    columnIndex: number;
-    value: number;
-  }) => void;
-}
+const MatrixInput: React.FC = () => {
+  const { matrix, updateMatrixCell } = useMatrix();
 
-const MatrixInput: React.FC<Props> = ({ matrix, updateMatrix }) => {
   return (
     <div className="flex flex-col items-center gap-3">
       {matrix.map((row, rowIndex) => (
@@ -23,7 +13,7 @@ const MatrixInput: React.FC<Props> = ({ matrix, updateMatrix }) => {
               key={`cell-${rowIndex}-${columnIndex}`}
               value={cell}
               onChange={val => {
-                updateMatrix({ rowIndex, columnIndex, value: val });
+                updateMatrixCell({ rowIndex, columnIndex, value: val });
               }}
             />
           ))}
