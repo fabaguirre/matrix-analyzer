@@ -13,14 +13,12 @@ const MatrixForm: React.FC = () => {
 
   return (
     <section className="mx-auto flex flex-col gap-6">
-      <h1 className="container mx-auto max-w-5xl text-balance py-2 text-center text-4xl font-bold">
-        Matrix Analyzer
-      </h1>
+      <h1 className="py-2 text-center text-4xl font-bold">Matrix Analyzer</h1>
 
       <MatrixConfig />
 
       <form
-        className="flex flex-col items-center gap-7"
+        className="flex flex-col items-center gap-12"
         onSubmit={handleSubmit}
       >
         <MatrixInput />

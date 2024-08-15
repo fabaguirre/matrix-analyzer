@@ -20,6 +20,8 @@ export interface MatrixContextType {
 
   isLoading: boolean;
   analyzeMatrix: () => Promise<void>;
+
+  stats?: MatrixStats;
 }
 
 export const MatrixContext = createContext<MatrixContextType>({
@@ -38,6 +40,7 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
   const [rowsLength, setRowsLength] = useState(3);
   const [columnsLength, setColumnsLength] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
+  const [stats, setStats] = useState<MatrixStats>();
 
   const updateMatrixCell = ({
     rowIndex,
@@ -68,6 +71,13 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
   const analyzeMatrix = async () => {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 3000));
+    setStats({
+      average: 0,
+      isDiagonal: false,
+      max: 0,
+      min: 0,
+      totalSum: 0,
+    });
     setIsLoading(false);
   };
 
@@ -82,6 +92,7 @@ export function MatrixProvider({ children }: { children: React.ReactNode }) {
         setColumnsLength,
         isLoading,
         analyzeMatrix,
+        stats,
       }}
     >
       {children}
