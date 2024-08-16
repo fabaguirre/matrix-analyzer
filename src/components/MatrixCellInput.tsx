@@ -13,7 +13,7 @@ const MatrixCellInput: React.FC<Props> = ({ value, onChange }) => {
 
   return (
     <input
-      className="grid aspect-square w-full flex-1 place-content-center rounded-lg text-center text-3xl font-semibold text-slate-950"
+      className="grid aspect-square w-full max-w-32 flex-1 place-content-center rounded-lg text-center text-3xl font-semibold text-slate-950"
       type="number"
       value={value}
       onChange={handleChange}
