@@ -19,7 +19,7 @@ const MatrixForm: React.FC = () => {
 
       <form
         aria-label="Form to analyze the matrix"
-        className="flex flex-col items-center gap-12"
+        className="flex flex-col items-center gap-12 px-4"
         onSubmit={handleSubmit}
       >
         <MatrixInput />

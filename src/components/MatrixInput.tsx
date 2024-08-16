@@ -7,7 +7,10 @@ const MatrixInput: React.FC = () => {
   return (
     <div className="flex flex-col items-center gap-3">
       {matrix.map((row, rowIndex) => (
-        <div key={`row-${rowIndex}`} className="flex items-center gap-3">
+        <div
+          key={`row-${rowIndex}`}
+          className="flex flex-nowrap items-center gap-3"
+        >
           {row.map((cell, columnIndex) => (
             <MatrixCellInput
               key={`cell-${rowIndex}-${columnIndex}`}
